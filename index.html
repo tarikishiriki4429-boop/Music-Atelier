@@ -4,12 +4,12 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#121821"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Music Atelier">
 <title>Music Atelier — Arrange · Mix · Connect</title>
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=013">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=014">
 </head>
 <body>
 <div class="app-shell">
 <header class="topbar">
- <div class="brand"><span class="mark">◈</span><div><span class="eyebrow">ATELIER SERIES / 03</span><strong>Music Atelier <em>v0.1.3</em></strong></div></div>
+ <div class="brand"><span class="mark">◈</span><div><span class="eyebrow">ATELIER SERIES / 03</span><strong>Music Atelier <em>v0.1.4</em></strong></div></div>
  <div class="top-actions"><span id="saveState" class="save-status">端末内に保存</span><button id="newProjectBtn" class="btn ghost" title="新しい曲">＋ 新しい曲</button><button id="helpBtn" class="btn ghost" title="使い方">？ 使い方</button><button id="backupBtn" class="btn ghost">↓ プロジェクトZIP</button></div>
 </header>
 <main class="content">
@@ -56,15 +56,24 @@
  <section class="card mixer-card">
   <div class="section-title"><span class="eyebrow">05 / MIX & EXPORT</span><h2>音の仕上げ・共有</h2><span class="fine">楽器トラックと歌声を同じタイミングでまとめる</span></div>
   <div class="mix-controls"><label>選択トラック音量 <input id="mixVolume" type="range" min="0" max="150" value="100"><b id="mixVolumeVal">100%</b></label><label>パン <input id="mixPan" type="range" min="-100" max="100" value="0"><b id="mixPanVal">中央</b></label><label>音の明るさ <input id="mixTone" type="range" min="-100" max="100" value="0"><b id="mixToneVal">標準</b></label><label>リバーブ <input id="mixReverb" type="range" min="0" max="60" value="12"><b id="mixReverbVal">12%</b></label></div>
+  <div class="automation-panel" style="margin:18px 0;padding:16px;border:1px solid #456071;border-radius:12px">
+   <h3>時間ごとのミックス編集</h3><p class="fine">選択トラックに適用。時間は曲の先頭からの拍数。点の間は滑らかに変化します。</p>
+   <label>編集対象 <select id="automationTarget"><option value="volume">音量（%）</option><option value="pan">左右（-100〜100）</option><option value="reverb">リバーブ（%）</option></select></label>
+   <canvas id="automationCanvas" width="800" height="160" style="width:100%;height:160px;background:#0c1721;border-radius:8px;touch-action:none;margin-top:12px"></canvas>
+   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><label>位置（拍）<input id="automationBeat" type="number" min="0" step=".125" value="0" style="width:95px"></label><label>値<input id="automationValue" type="number" step="1" value="100" style="width:85px"></label><button id="automationAdd" class="btn">＋ 点を追加</button><button id="automationRemove" class="btn ghost">選択点を削除</button><button id="automationClear" class="btn ghost">この線を初期化</button></div>
+   <p id="automationInfo" class="fine">グラフをタップして点を追加、ドラッグして移動できます。</p>
+   <h3>コンプレッサー</h3>
+   <div class="mix-controls"><label>圧縮量 <input id="mixCompression" type="range" min="0" max="100" value="0"><b id="mixCompressionVal">0%</b></label><label>アタック <input id="mixAttack" type="range" min="1" max="100" value="10"><b id="mixAttackVal">10ms</b></label><label>リリース <input id="mixRelease" type="range" min="40" max="800" value="180"><b id="mixReleaseVal">180ms</b></label></div>
+  </div>
   <div class="export-grid"><button id="exportVoiceBtn" class="btn export-btn bright"><strong>↗ Voice Atelierへ渡すZIP</strong><small>曲の構成＋伴奏・ガイドを一緒に渡す</small></button><button id="exportInstrumentBtn" class="btn export-btn"><strong>↓ 伴奏だけ WAV</strong><small>ガイドと歌声を除いた音源</small></button><button id="exportFinalBtn" class="btn export-btn"><strong>↓ 最終ミックス WAV</strong><small>楽器＋歌声（ガイド除外が標準）</small></button></div>
   <div class="output-options"><label class="check"><input id="voiceGuideMelody" type="checkbox" checked> Voice録音用ガイドにメロディーも含める</label><label class="check"><input id="normalize" type="checkbox" checked> 音割れを防ぐため音量を調整</label></div>
   <p class="caution"><strong>Voiceへの共有：</strong>Voice Atelierでは「Melody連携ZIPを取り込む」から読み込めます。録音後は「ガイド音声も完成WAVに混ぜる」を<strong>OFF</strong>にして歌声だけを書き出し、そのWAVをここへ取り込むと伴奏が二重になりません。再連携はVoice側の録音を置き換えるため、先にVoiceのZIPバックアップを作ってください。</p>
  </section>
- <footer class="footer">Music Atelier v0.1.3 · ローカル音源合成（録音楽器サンプルではありません） · GitHub Pages対応 · 外部CDN／サーバーへの音声送信なし · Safariで動作確認が必要な試作版</footer>
+ <footer class="footer">Music Atelier v0.1.4 · ローカル音源合成（録音楽器サンプルではありません） · GitHub Pages対応 · 外部CDN／サーバーへの音声送信なし · Safariで動作確認が必要な試作版</footer>
 </main>
 </div>
 <dialog id="sectionDialog"><form method="dialog" id="sectionForm"><h2>ブロックの編集</h2><label>名前<input id="sectionName" maxlength="30" required></label><label>小節数 <input id="sectionBars" type="number" min="1" max="48" value="4" required></label><label>歌詞（任意）<textarea id="sectionLyrics" rows="5" placeholder="イントロ・間奏なら空欄でOK"></textarea></label><div class="dialog-buttons"><button type="button" id="sectionCancel" class="btn ghost">キャンセル</button><button id="sectionApply" value="ok" class="btn bright">保存する</button></div></form></dialog>
 <dialog id="helpDialog"><div class="help-content"><h2>Music Atelier の使い方</h2><p><strong>1.</strong> Melody Atelierで「Voice Atelierへ渡すZIP」を保存し、ここで「Melody Atelierから」を選択します。曲構成・歌詞・メロディー・コード進行を読み込みます。</p><p><strong>2.</strong> トラックを選び、下のピアノロールに音を追加します。「コードから伴奏生成」で読み込んだコードをピアノ・ベース・ギター・ドラムに変換することもできます。</p><p><strong>3.</strong> 「Voice Atelierへ渡すZIP」を作り、Voice Atelier側の「Melody連携ZIPを取り込む」で読み込みます。Voice側ではその音声が「♪ メロディーガイド」という名前になりますが、実体は伴奏を含む録音用ガイドです。</p><p><strong>4.</strong> Voice Atelierで歌を録音。「ガイド音声も完成WAVに混ぜる」はOFFのままWAV保存します。Music Atelierの「Voice Atelierの歌声」でそのファイルを取り込み、歌声トラックを選択して音量・位置を調整します。最終ミックスをWAV保存します。</p><p><strong>5.</strong> 「プロジェクトZIP」は編集データと追加した音声も含むバックアップ。通常の曲作りはこの端末・このURLへ自動保存しますが、Safariデータの消去・端末の容量整理などで失われる場合があるため、こまめにZIPも保存してください。</p><p><strong>制限：</strong>標準ブラウザー音源から合成した音色であり、サンプリング音源ではありません。書き出しは最大6分、音声インポートはファイルあたり80MB／6分まで。Safari実機検証は未実施。Melody連携ZIPとVoice用ZIPは無圧縮形式に対応。音声は外部サービスへ送信しません。</p><div class="dialog-buttons"><button id="closeHelp" class="btn bright">閉じる</button></div></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=013" defer></script>
+<script src="app.js?v=014" defer></script>
 </body></html>
