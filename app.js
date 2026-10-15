@@ -37,7 +37,17 @@ function isAudio(t){return !!t&&['voice','audio'].includes(t.type);}
 function isGuide(t){return t?.type==='guide';}
 function quant(v){return Math.round(v/st.snap)*st.snap;}
 function solfegeName(n){const names=['ド','ド♯','レ','ミ♭','ミ','ファ','ファ♯','ソ','ラ♭','ラ','シ♭','シ'];return names[(n+120)%12]+(Math.floor(n/12)-1);}
-function displayPitch(n){return solfegeName(n);}
+let pitchNotation='letter';
+try{pitchNotation=localStorage.getItem('music-atelier-pitch-notation')==='solfege'?'solfege':'letter';}catch(e){}
+function displayPitch(n){return pitchNotation==='solfege'?solfegeName(n):pitchName(n);}
+function setPitchNotation(mode){
+  pitchNotation=mode==='solfege'?'solfege':'letter';
+  try{localStorage.setItem('music-atelier-pitch-notation',pitchNotation);}catch(e){}
+  const picker=document.getElementById('pitchNotation');
+  if(picker)picker.value=pitchNotation;
+  if(typeof render==='function')render();
+  if(typeof renderAll==='function')renderAll();
+}
 function pitchName(n){const names=['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];return names[(n+120)%12]+(Math.floor(n/12)-1);}
 function syncControls(){$('songTitle').value=st.title;$('bpm').value=st.bpm;$('beats').value=st.beats;$('guideAudible').checked=st.guideAudible;$('guideInMix').checked=st.guideInMix;$('voiceGuideMelody').checked=st.voiceGuideMelody;$('normalize').checked=st.normalize;$('snapSelect').value=String(st.snap);$('arrZoom').value=st.arrZoom;$('rollZoom').value=st.rollZoom;refreshHistory();}
 function render(){renderSections();renderTracks();renderArrangement();renderRoll();renderInspector();renderMix();renderTime();}
@@ -168,3 +178,11 @@ function setupEvents(){
 async function main(){setupEvents();await loadAutosave();syncControls();history=[snapshot()];histIndex=0;render();refreshHistory();if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(console.warn);}
 main().catch(e=>{console.error(e);toast('初期化中にエラーが発生：'+e.message,8000);});
 })();
+
+document.addEventListener('change',function(e){
+  if(e.target&&e.target.id==='pitchNotation')setPitchNotation(e.target.value);
+});
+document.addEventListener('DOMContentLoaded',function(){
+  const picker=document.getElementById('pitchNotation');
+  if(picker)picker.value=pitchNotation;
+});
