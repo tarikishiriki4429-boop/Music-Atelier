@@ -175,14 +175,7 @@ function setupEvents(){
  $('exportVoiceBtn').onclick=()=>void exportVoice();$('exportInstrumentBtn').onclick=()=>void exportWave('instrument');$('exportFinalBtn').onclick=()=>void exportWave('final');
  window.addEventListener('beforeunload',()=>{if(playback)finishPlayback();});
 }
-async function main(){setupEvents();await loadAutosave();syncControls();history=[snapshot()];histIndex=0;render();refreshHistory();if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(console.warn);}
+async function main(){document.getElementById('pitchNotation').addEventListener('change',e=>setPitchNotation(e.target.value));document.getElementById('pitchNotation').value=pitchNotation;setupEvents();await loadAutosave();syncControls();history=[snapshot()];histIndex=0;render();refreshHistory();if('serviceWorker'in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(console.warn);}
 main().catch(e=>{console.error(e);toast('初期化中にエラーが発生：'+e.message,8000);});
 })();
 
-document.addEventListener('change',function(e){
-  if(e.target&&e.target.id==='pitchNotation')setPitchNotation(e.target.value);
-});
-document.addEventListener('DOMContentLoaded',function(){
-  const picker=document.getElementById('pitchNotation');
-  if(picker)picker.value=pitchNotation;
-});
