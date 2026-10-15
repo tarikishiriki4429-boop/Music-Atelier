@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#121821"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Music Atelier">
+<title>Music Atelier — Arrange · Mix · Connect</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=010">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+ <div class="brand"><span class="mark">◈</span><div><span class="eyebrow">ATELIER SERIES / 03</span><strong>Music Atelier <em>v0.1.0</em></strong></div></div>
+ <div class="top-actions"><span id="saveState" class="save-status">端末内に保存</span><button id="newProjectBtn" class="btn ghost" title="新しい曲">＋ 新しい曲</button><button id="helpBtn" class="btn ghost" title="使い方">？ 使い方</button><button id="backupBtn" class="btn ghost">↓ プロジェクトZIP</button></div>
+</header>
+<main class="content">
+ <section class="heading-row">
+  <div><div class="eyebrow">ARRANGE / SYNTHESIZE / MIX</div><h1>音を重ねて、曲にする。</h1><p class="subtitle">メロディーと伴奏は別トラック。イントロも歌声も、同じ時間軸で。</p></div>
+  <div class="project-name"><label for="songTitle">曲名</label><input id="songTitle" maxlength="80" value="新しい曲"></div>
+ </section>
+ <section class="card import-card" aria-label="アプリ連携">
+  <div class="section-title"><span class="eyebrow">01 / CONNECT</span><h2>ファイル連携</h2><span class="fine">オフライン・端末内で読み込み</span></div>
+  <div class="action-grid">
+   <button id="importMelodyBtn" class="btn feature"><span class="action-symbol">↘</span><span><strong>Melody Atelierから</strong><small>連携ZIP・歌詞・旋律・コード</small></span></button>
+   <button id="importVoiceBtn" class="btn feature"><span class="action-symbol">♫</span><span><strong>Voice Atelierの歌声</strong><small>ガイドを除いたWAVを読み込み</small></span></button>
+   <button id="importAudioBtn" class="btn feature"><span class="action-symbol">＋</span><span><strong>手持ちの音声を追加</strong><small>WAV・M4A・MP3など</small></span></button>
+   <button id="restoreBtn" class="btn feature subdued"><span class="action-symbol">⤴</span><span><strong>制作データを復元</strong><small>Music AtelierのZIP</small></span></button>
+  </div>
+  <input type="file" id="melodyFile" accept=".zip,application/zip" hidden><input type="file" id="voiceFile" accept="audio/*,.wav,.m4a,.mp3" hidden><input type="file" id="audioFile" accept="audio/*,.wav,.m4a,.mp3" hidden><input type="file" id="restoreFile" accept=".zip,application/zip" hidden>
+ </section>
+ <section class="card playback-card" aria-label="テンポと再生">
+  <div class="transport-line">
+   <button id="playBtn" class="btn mainplay" aria-label="再生">▶ 再生</button><button id="stopBtn" class="btn ghost" aria-label="先頭に戻す">■ 停止</button>
+   <div class="timecode" id="timecode">00:00 / 00:00</div><input id="seekBar" type="range" min="0" max="100" value="0" step=".1" aria-label="再生位置" class="seek">
+   <label class="setting">BPM <input id="bpm" type="number" min="40" max="240" value="120"></label><label class="setting">拍子 <select id="beats"><option value="4">4/4</option><option value="3">3/4</option><option value="6">6拍</option></select></label>
+  </div>
+  <div class="transport-line secondary"><label class="check"><input id="metronome" type="checkbox"> メトロノーム</label><label class="check"><input id="guideAudible" type="checkbox" checked> ガイドを試聴</label><label class="check"><input id="guideInMix" type="checkbox"> 完成曲にガイドを含める</label><span class="spacer"></span><span id="audioEngineStatus" class="fine">再生は端末内の音源合成</span></div>
+ </section>
+ <section class="card structure-card">
+  <div class="section-title"><span class="eyebrow">02 / SONG FORM</span><h2>曲の構成</h2><span class="fine">歌声のないイントロも、時間を保って並べます</span></div>
+  <div id="sectionChips" class="section-chips"></div>
+  <div class="structure-actions"><button id="addSectionBtn" class="btn ghost small">＋ ブロック追加</button><button id="editSectionBtn" class="btn ghost small">選択ブロックを編集</button><button id="deleteSectionBtn" class="btn ghost small">選択ブロックを削除</button><button id="autoArrangeBtn" class="btn ghost small">♬ コードから伴奏生成</button><button id="demoBtn" class="btn ghost small">▶ デモ曲で試す</button></div>
+ </section>
+ <section class="card arrangement-card" aria-label="トラック一覧と全体構成">
+  <div class="section-title"><span class="eyebrow">03 / ARRANGEMENT</span><h2>トラック</h2><span class="fine">選択すると下の音符エディターに表示されます</span></div>
+  <div class="toolbar"><label>追加する楽器 <select id="instrumentSelect"><option value="piano">ピアノ</option><option value="guitar">エレキギター</option><option value="bass">ベース</option><option value="drums">ドラム</option><option value="violin">ヴァイオリン</option><option value="synth">シンセ</option></select></label><button id="addTrackBtn" class="btn bright small">＋ 楽器トラック</button><button id="removeTrackBtn" class="btn ghost small">選択トラックを削除</button><span class="spacer"></span><label>表示倍率 <input id="arrZoom" type="range" min="7" max="32" value="12"></label></div>
+  <div class="arrange-container"><div id="trackList" class="track-list"></div><div id="arrScroll" class="arr-scroll"><canvas id="arrCanvas" aria-label="曲全体のトラックタイムライン"></canvas></div></div>
+  <div class="hint">楽器ごとの音量・左右・ミュート・ソロを調整できます。トラックの時間軸をタップすると、そこから再生します。</div>
+ </section>
+ <section class="card note-card" aria-label="音符編集">
+  <div class="section-title"><span class="eyebrow">04 / MIDI EDITOR</span><h2 id="editorTitle">音符の編集</h2><span class="fine" id="editorSubtitle">ブロックを直接つかんで移動・右端で長さを変更</span></div>
+  <div class="toolbar compact"><div class="seg-buttons"><button id="toolSelect" class="btn small active">選択・移動</button><button id="toolDraw" class="btn small">＋ 音を追加</button></div><label>細かさ <select id="snapSelect"><option value="1">1拍</option><option value="0.5" selected>1/2拍</option><option value="0.25">1/4拍</option><option value="0.125">1/8拍</option></select></label><label>拡大 <input id="rollZoom" type="range" min="14" max="56" value="30"></label><span class="spacer"></span><button id="undoBtn" class="btn ghost small">↶ 戻す</button><button id="redoBtn" class="btn ghost small">↷ やり直す</button><button id="deleteNoteBtn" class="btn ghost small danger">選択音を削除</button></div>
+  <div id="rollMessage" class="roll-message" hidden></div><div id="rollScroll" class="roll-scroll"><canvas id="rollCanvas" aria-label="ピアノロール、音符をタップで選択、追加モードで音を追加"></canvas></div>
+  <div class="inspector"><div class="inspector-heading"><strong>選択中の音</strong><span id="noteInfo" class="fine">音符を選ぶと細かく操作できます</span></div><div class="nudge-row"><span class="fine">位置</span><button data-move="left" class="btn ghost small">←</button><button data-move="right" class="btn ghost small">→</button><span class="fine">音程</span><button data-move="down" class="btn ghost small">↓</button><button data-move="up" class="btn ghost small">↑</button><span class="fine">長さ</span><button data-move="shorter" class="btn ghost small">−</button><button data-move="longer" class="btn ghost small">＋</button><label class="velocity">強さ <input id="velocity" type="range" min="10" max="127" value="90"></label><button id="duplicateNoteBtn" class="btn ghost small">複製</button></div></div>
+  <div class="hint">空白をダブルタップ、または「＋ 音を追加」で配置。音符はドラッグ・右端で伸縮、Shift＋タップで複数選択。キーボードの矢印キーでも移動できます。編集内容は自動保存します。</div>
+ </section>
+ <section class="card mixer-card">
+  <div class="section-title"><span class="eyebrow">05 / MIX & EXPORT</span><h2>音の仕上げ・共有</h2><span class="fine">楽器トラックと歌声を同じタイミングでまとめる</span></div>
+  <div class="mix-controls"><label>選択トラック音量 <input id="mixVolume" type="range" min="0" max="150" value="100"><b id="mixVolumeVal">100%</b></label><label>パン <input id="mixPan" type="range" min="-100" max="100" value="0"><b id="mixPanVal">中央</b></label><label>音の明るさ <input id="mixTone" type="range" min="-100" max="100" value="0"><b id="mixToneVal">標準</b></label><label>リバーブ <input id="mixReverb" type="range" min="0" max="60" value="12"><b id="mixReverbVal">12%</b></label></div>
+  <div class="export-grid"><button id="exportVoiceBtn" class="btn export-btn bright"><strong>↗ Voice Atelierへ渡すZIP</strong><small>曲の構成＋伴奏・ガイドを一緒に渡す</small></button><button id="exportInstrumentBtn" class="btn export-btn"><strong>↓ 伴奏だけ WAV</strong><small>ガイドと歌声を除いた音源</small></button><button id="exportFinalBtn" class="btn export-btn"><strong>↓ 最終ミックス WAV</strong><small>楽器＋歌声（ガイド除外が標準）</small></button></div>
+  <div class="output-options"><label class="check"><input id="voiceGuideMelody" type="checkbox" checked> Voice録音用ガイドにメロディーも含める</label><label class="check"><input id="normalize" type="checkbox" checked> 音割れを防ぐため音量を調整</label></div>
+  <p class="caution"><strong>Voiceへの共有：</strong>Voice Atelierでは「Melody連携ZIPを取り込む」から読み込めます。録音後は「ガイド音声も完成WAVに混ぜる」を<strong>OFF</strong>にして歌声だけを書き出し、そのWAVをここへ取り込むと伴奏が二重になりません。再連携はVoice側の録音を置き換えるため、先にVoiceのZIPバックアップを作ってください。</p>
+ </section>
+ <footer class="footer">Music Atelier v0.1.0 · ローカル音源合成（録音楽器サンプルではありません） · GitHub Pages対応 · 外部CDN／サーバーへの音声送信なし · Safariで動作確認が必要な試作版</footer>
+</main>
+</div>
+<dialog id="sectionDialog"><form method="dialog" id="sectionForm"><h2>ブロックの編集</h2><label>名前<input id="sectionName" maxlength="30" required></label><label>小節数 <input id="sectionBars" type="number" min="1" max="48" value="4" required></label><label>歌詞（任意）<textarea id="sectionLyrics" rows="5" placeholder="イントロ・間奏なら空欄でOK"></textarea></label><div class="dialog-buttons"><button type="button" id="sectionCancel" class="btn ghost">キャンセル</button><button id="sectionApply" value="ok" class="btn bright">保存する</button></div></form></dialog>
+<dialog id="helpDialog"><div class="help-content"><h2>Music Atelier の使い方</h2><p><strong>1.</strong> Melody Atelierで「Voice Atelierへ渡すZIP」を保存し、ここで「Melody Atelierから」を選択します。曲構成・歌詞・メロディー・コード進行を読み込みます。</p><p><strong>2.</strong> トラックを選び、下のピアノロールに音を追加します。「コードから伴奏生成」で読み込んだコードをピアノ・ベース・ギター・ドラムに変換することもできます。</p><p><strong>3.</strong> 「Voice Atelierへ渡すZIP」を作り、Voice Atelier側の「Melody連携ZIPを取り込む」で読み込みます。Voice側ではその音声が「♪ メロディーガイド」という名前になりますが、実体は伴奏を含む録音用ガイドです。</p><p><strong>4.</strong> Voice Atelierで歌を録音。「ガイド音声も完成WAVに混ぜる」はOFFのままWAV保存します。Music Atelierの「Voice Atelierの歌声」でそのファイルを取り込み、歌声トラックを選択して音量・位置を調整します。最終ミックスをWAV保存します。</p><p><strong>5.</strong> 「プロジェクトZIP」は編集データと追加した音声も含むバックアップ。通常の曲作りはこの端末・このURLへ自動保存しますが、Safariデータの消去・端末の容量整理などで失われる場合があるため、こまめにZIPも保存してください。</p><p><strong>制限：</strong>標準ブラウザー音源から合成した音色であり、サンプリング音源ではありません。書き出しは最大6分、音声インポートはファイルあたり80MB／6分まで。Safari実機検証は未実施。Melody連携ZIPとVoice用ZIPは無圧縮形式に対応。音声は外部サービスへ送信しません。</p><div class="dialog-buttons"><button id="closeHelp" class="btn bright">閉じる</button></div></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="app.js?v=010" defer></script>
+</body></html>
