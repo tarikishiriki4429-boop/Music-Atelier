@@ -1,6 +1,283 @@
-:root{color-scheme:dark;--bg:#0e141d;--surface:#18222d;--panel:#1d2935;--panel2:#23313f;--line:#34404f;--fg:#f1f6fa;--sub:#acbcc8;--teal:#79d9cb;--violet:#a7a0fb;--amber:#edc48c;--danger:#e88c91;--size:14px}*{box-sizing:border-box}html{min-height:100%;-webkit-text-size-adjust:100%}body{margin:0;background:linear-gradient(150deg,#152231 0,#0e141d 360px);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;font-size:var(--size)}button,input,select,textarea{font:inherit}button{touch-action:manipulation}button:disabled{opacity:.4;cursor:not-allowed}.app-shell{max-width:1700px;margin:auto}.topbar{position:sticky;top:0;z-index:15;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px clamp(14px,3vw,42px);background:#111b26ed;border-bottom:1px solid #304455;backdrop-filter:blur(16px)}.brand{display:flex;align-items:center;gap:12px}.mark{font-size:29px;font-weight:900;line-height:1;color:var(--teal)}.brand strong{display:block;font-size:20px;letter-spacing:-.4px}.brand em{font-style:normal;color:var(--sub);font-size:11px;padding-left:7px}.eyebrow{display:block;color:var(--teal);letter-spacing:1.4px;font-size:10px;font-weight:800;margin-bottom:5px}.top-actions,.transport-line,.toolbar,.structure-actions,.nudge-row,.output-options{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.save-status{font-size:11px;color:var(--sub)}.content{display:grid;gap:14px;padding:22px clamp(12px,3vw,42px) 70px}.heading-row{display:flex;justify-content:space-between;gap:14px;align-items:end;margin:2px 1px 7px}.heading-row h1{margin:0;font-size:clamp(25px,3vw,35px);font-weight:750;letter-spacing:-.8px}.subtitle{margin:6px 0 0;color:var(--sub);font-size:13px}.project-name{display:flex;flex-direction:column;gap:6px;width:min(300px,42%)}.project-name label{font-size:11px;color:var(--sub)}input,select,textarea{background:#101924;color:var(--fg);border:1px solid #405061;border-radius:8px;padding:8px 11px;min-width:0}input[type=checkbox],input[type=range]{accent-color:var(--teal)}input[type=range]{padding:0;max-width:135px}select{padding:7px 9px}textarea{width:100%;resize:vertical}button{border:none;cursor:pointer}.btn{border:1px solid #435263;border-radius:9px;background:#273542;color:var(--fg);padding:9px 14px;font-weight:650;transition:background .15s,transform .1s}.btn:active{transform:translateY(1px)}.btn:hover{background:#344657}.btn.ghost{background:transparent}.btn.ghost:hover{background:#2a3949}.btn.bright,.btn.active{background:#83e1d4;color:#092a2e;border-color:#83e1d4}.btn.bright:hover{background:#a1f3e9}.btn.small{font-size:12px;padding:7px 10px}.card{background:var(--surface);border:1px solid #2f4050;border-radius:13px;padding:18px;box-shadow:0 2px 14px #0002}.section-title{display:flex;align-items:end;gap:12px;margin-bottom:14px;flex-wrap:wrap}.section-title .eyebrow{width:100%;margin-bottom:-5px}.section-title h2{margin:0;font-size:17px;letter-spacing:-.2px}.fine{font-size:11px;color:var(--sub)}.action-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.feature{display:flex;align-items:center;gap:11px;min-height:70px;text-align:left;padding:12px}.feature strong,.feature small{display:block}.feature small{margin-top:5px;color:var(--sub);font-size:11px;font-weight:400}.action-symbol{font-size:26px;color:var(--teal)}.subdued .action-symbol{color:var(--amber)}.playback-card{padding:12px 18px}.transport-line{gap:14px}.transport-line.secondary{margin-top:12px;gap:17px}.mainplay{color:#0b2829;background:var(--teal);border-color:var(--teal);min-width:88px}.timecode{font-size:17px;letter-spacing:.6px;font-weight:730;font-variant-numeric:tabular-nums}.seek{flex:1;max-width:none!important;min-width:80px}.setting{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--sub)}.setting input{width:70px}.setting select{width:75px}.check{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--sub)}.spacer{flex:1}.section-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:13px}.section-chip{background:#253443;border:1px solid #425567;border-left:4px solid var(--teal);border-radius:8px;padding:9px 11px;text-align:left;min-width:120px}.section-chip.selected{outline:2px solid #8dded8;outline-offset:1px}.section-chip strong,.section-chip small{display:block}.section-chip small{color:var(--sub);font-size:10px;margin-top:6px}.toolbar{margin:0 0 12px;gap:10px}.toolbar label{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:8px}.arrange-container{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#101a25}.track-list{width:240px;flex:none;background:#1b2835;border-right:1px solid #405066}.track-card{height:66px;display:flex;gap:9px;padding:6px 8px;align-items:center;border-bottom:1px solid #304252;cursor:pointer;overflow:hidden}.track-card:first-child{height:36px;background:#1e2b38;font-size:11px;color:var(--sub)}.track-card.selected{background:#304452}.track-color{width:5px;align-self:stretch;border-radius:5px}.track-data{min-width:0;flex:1}.track-name{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;font-weight:700}.track-sub{font-size:10px;color:var(--sub)}.track-mini{display:flex;gap:5px;align-items:center;margin-top:5px}.track-mini button{border:1px solid #567082;background:#263545;color:var(--sub);border-radius:4px;font-size:10px;padding:1px 6px;min-width:24px}.track-mini button.on{background:var(--amber);color:#21190c}.track-mini input[type=range]{width:76px}.arr-scroll{overflow:auto;flex:1;min-width:0;scrollbar-width:thin}.arr-scroll canvas{display:block;touch-action:pan-x pan-y;cursor:crosshair}.hint{font-size:11px;color:var(--sub);margin-top:12px;line-height:1.75}.roll-scroll{background:#101a24;max-height:410px;overflow:auto;border:1px solid var(--line);border-radius:9px;scrollbar-width:thin;touch-action:pan-x pan-y}.roll-scroll canvas{display:block;touch-action:none;cursor:crosshair}.roll-message{padding:26px;color:var(--sub);text-align:center}.roll-message[hidden]{display:none}.note-card{border-color:#395061}.compact{gap:9px}.seg-buttons{display:flex;gap:3px}.seg-buttons .btn{border-radius:7px}.inspector{background:#202d3a;border:1px solid #3b4b5a;padding:12px;border-radius:9px;margin-top:11px}.inspector-heading{display:flex;gap:10px;align-items:center;margin-bottom:10px}.inspector-heading strong{font-size:12px}.nudge-row{gap:8px}.velocity{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--sub)}.danger{color:var(--danger)!important}.mix-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:8px 0 18px}.mix-controls label{background:#243341;border:1px solid #405166;border-radius:9px;padding:13px 11px;font-size:11px;color:var(--sub);display:grid;grid-template-columns:1fr auto;gap:8px}.mix-controls input{grid-column:1/-1;max-width:none;width:100%}.mix-controls b{font-weight:700;color:var(--fg)}.export-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.export-btn{display:flex;flex-direction:column;text-align:left;gap:7px;min-height:66px}.export-btn small{font-size:11px;color:var(--sub);font-weight:400}.export-btn.bright small{color:#24524d}.output-options{margin-top:13px}.caution{margin:15px 0 0;background:#13232a;border-left:3px solid var(--teal);padding:12px 15px;color:#cfdee6;font-size:12px;line-height:1.8}.footer{text-align:center;color:#8ca0ae;font-size:11px;line-height:1.8;padding-top:10px}dialog{border:1px solid #526777;border-radius:14px;background:#1b2936;color:var(--fg);width:min(540px,calc(100vw - 36px));box-shadow:0 20px 75px #000b}dialog::backdrop{background:#050911c9}dialog form{display:grid;gap:13px}dialog h2{margin:0 0 5px;font-size:19px}dialog label{display:grid;gap:6px;color:var(--sub);font-size:12px}dialog .dialog-buttons{display:flex;justify-content:end;gap:10px;margin-top:6px}.help-content p{font-size:13px;color:#d4e1e7;line-height:1.8}.toast{display:none;position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:40;max-width:min(700px,90vw);background:#314957;border:1px solid #9ee5d9;border-radius:10px;color:white;padding:13px 18px;box-shadow:0 10px 40px #000a;line-height:1.5}.toast.show{display:block}@media(max-width:1050px){.action-grid{grid-template-columns:repeat(2,1fr)}.mix-controls{grid-template-columns:repeat(2,1fr)}.track-list{width:204px}.content{padding:16px 12px 60px}.card{padding:13px}}@media(max-width:700px){.topbar{padding:10px 12px;flex-wrap:wrap}.brand strong{font-size:17px}.heading-row{align-items:stretch;flex-direction:column}.project-name{width:100%}.action-grid{grid-template-columns:1fr 1fr}.feature{padding:9px;min-height:67px}.feature small{font-size:10px}.action-symbol{font-size:20px}.track-list{width:155px}.track-mini input[type=range]{width:45px}.track-mini{gap:2px}.export-grid{grid-template-columns:1fr}.mix-controls{grid-template-columns:1fr 1fr}.transport-line{gap:8px}.timecode{font-size:13px}.section-title h2{font-size:15px}.nudge-row{gap:5px}.btn{padding:8px 10px}.top-actions .save-status{display:none}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-/* Keep long timelines scrolling inside their own editors, not across the whole page. */
-.app-shell,.content,.card,.arrangement-card,.note-card{min-width:0}
-.content{grid-template-columns:minmax(0,1fr)}
-.arrange-container,.arr-scroll,.roll-scroll{max-width:100%;min-width:0}
-.roll-scroll{width:100%}
+:root{color-scheme:dark;--bg:#0f111b;--panel:#1b2030;--panel2:#151928;--line:#3c435b;--text:#f0edfb;--muted:#a9aac2;--soft:#878ba7;--violet:#ae94ff;--violet2:#7960c2;--green:#91dfce;--orange:#fac783;--red:#fa9d9c;--shadow:0 18px 55px #06070f44;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-synthesis:none}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(ellipse at 100% 0%,#232038 0,#0f111b 35%);color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid transparent;transition:background .16s,border .16s,transform .16s;touch-action:manipulation}button:disabled{opacity:.35;cursor:default}button:not(:disabled):active{transform:scale(.98)}input,select,textarea{color:var(--text);background:#111626;border:1px solid #4b5169;border-radius:10px;padding:9px 11px;min-width:0;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--violet);box-shadow:0 0 0 2px #aa8fff28}input[type=checkbox]{accent-color:var(--violet);width:17px;height:17px;padding:0}input[type=range]{padding:0;accent-color:var(--violet);cursor:pointer}textarea{resize:vertical;line-height:1.85;min-height:112px;width:100%}.topbar{padding:15px 28px;border-bottom:1px solid #2e3346;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#111320ed}.branding{display:flex;align-items:center;gap:12px;white-space:nowrap}.appmark{display:grid;place-items:center;border:2px solid var(--violet);color:var(--violet);border-radius:12px;font-size:27px;width:39px;height:39px}.kicker,.overline{font-size:10px;letter-spacing:.16em;color:#bca8ff;font-weight:800}.branding strong{font-size:20px}.branding small{font-size:10px;color:var(--muted);font-weight:500}.topActions,.transportActions,.editorTools,.transportBottom,.keySettings,.inspectorInputs{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.privacy{font-size:11px;color:var(--green);margin-right:12px}.app{padding:22px 28px 30px;max-width:1840px;margin:auto}h1,h2,h3,p{margin-top:0}h1{font-weight:550;font-size:clamp(26px,3.5vw,39px);letter-spacing:.02em;margin:16px 0 8px}h1 em{font-style:normal;color:#bca8ff}h2{font-size:18px;font-weight:650;margin:6px 0}h3{font-size:15px;margin:7px 0;font-weight:650}.welcome{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:7px 0 24px}.welcome p{color:var(--muted);font-size:13px}.projectName{max-width:270px;min-width:205px}.projectName label,.projectName span{display:block;font-size:11px;color:var(--muted);margin-bottom:6px}.projectName input{width:100%}.projectName span{margin:5px 0 0;color:var(--green)}.card{background:linear-gradient(140deg,#1e2233,#191e2c 68%);border:1px solid #343a54;border-radius:20px;box-shadow:var(--shadow)}.transport{padding:20px 23px;margin-bottom:18px}.transportTop{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:17px;border-bottom:1px solid var(--line)}button.primary{background:#9877ec;color:white;border-color:#9877ec;font-weight:650}button.primary:hover{background:#ad8dff}button.accent{background:#1b4a50;color:#bcfff4;border-color:#34787b;font-weight:600}button.accent:hover{background:#27676b}button.outline{background:#272c40;color:#e8e2f7;border-color:#515772}button.outline:hover{background:#343b55}button{border-radius:10px;padding:10px 14px;min-height:38px}button.small{font-size:12px;padding:9px 11px;min-height:34px}button.tiny{font-size:11px;padding:6px 9px;min-height:30px}button.square{width:32px;padding:5px;min-height:31px}.fill{width:100%;margin-top:12px}.time{color:#bdc0d4;font-size:12px;font-variant-numeric:tabular-nums}.transportBottom{padding-top:16px;gap:11px 15px}.transportBottom label,.keySettings label,.inspectorInputs label{display:flex;align-items:center;gap:7px;font-size:11px;color:#ced0e0;white-space:nowrap}.transportBottom input[type=number]{width:75px}.transportBottom select{max-width:145px}.switch{display:flex;align-items:center;gap:5px!important}.volume{width:85px}.pulseDots{display:flex;gap:7px;align-items:center;padding:9px 14px;border:1px solid #454a64;border-radius:10px;background:#121829}.pulseDots span{width:12px;height:12px;border-radius:50%;border:1px solid #68708d;background:#2b3244;transition:.05s}.pulseDots span.on{background:var(--violet);box-shadow:0 0 12px var(--violet)}.pulseDots span:first-child.on{background:var(--orange);box-shadow:0 0 12px var(--orange)}.transportHint,.subtle,.helper,.footerHelp,.tinyHint{font-size:11px;color:var(--muted);line-height:1.65}.transportHint{padding-top:9px}.linklike{background:transparent;color:#b7a2fc;text-decoration:underline;text-underline-offset:3px;padding:0;min-height:0;border:0;font-size:inherit}.workspace{display:grid;grid-template-columns:minmax(300px,38%) minmax(450px,1fr);gap:16px;height:min(850px,calc(100dvh - 340px));min-height:570px}.lyricsPane,.editorPane{min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#65698f transparent;padding:19px 20px}.paneHeader{display:flex;align-items:center;justify-content:space-between;gap:12px}.paneHeader.compact{margin-top:12px}.sectionList{display:flex;flex-direction:column;gap:9px;margin-top:12px}.sectionCard{padding:11px;border:1px solid #414861;border-radius:13px;background:#141a29;transition:border .13s,background .13s}.sectionCard.selected{border-color:var(--violet);background:#211e37}.sectionMain{display:flex;align-items:center;justify-content:space-between;gap:8px}.sectionLabel{display:flex;align-items:center;gap:8px;flex:1;min-width:0;cursor:pointer}.sectionBadge{width:10px;height:10px;border-radius:4px;flex-shrink:0}.sectionLabel strong{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sectionMeta{color:var(--muted);font-size:10px;margin:8px 0 0 18px}.sectionBtns{display:flex;gap:3px}.sectionBtns button{padding:4px 6px;font-size:11px;min-height:27px;min-width:27px;background:#2b3248;color:#d7d8e5;border-color:#464d64}.sectionBtns .trash{color:#ffc0c0}.sectionCard.dragging{opacity:.45}.sectionCard.drop{outline:2px dashed var(--green)}.separator{margin:17px 0;height:1px;background:var(--line)}.formLabel{display:block;font-size:12px;font-weight:700;margin:13px 0 7px;color:#ded5ff}.helper{margin:6px 0}.segmented{background:#141829;border:1px solid #383e56;border-radius:12px;padding:10px;margin-top:14px}.segmented .formLabel{margin:0 0 8px}.moraChips{display:flex;flex-wrap:wrap;gap:5px}.moraChip{border:1px solid #504973;background:#292541;border-radius:8px;padding:6px 7px;min-width:36px;text-align:center}.moraChip b,.moraChip small{display:block}.moraChip b{font-size:15px}.moraChip small{font-size:10px;color:#ab9be6}.warning{display:block;color:var(--orange);font-size:11px;margin-top:6px}.footerHelp{margin-top:12px}.editorPane{padding:19px 21px}.editorTools{gap:5px}.editorTools span{font-size:11px;color:var(--muted);min-width:38px;text-align:center}.keySettings{background:#111726;border-radius:12px;border:1px solid #3b435d;padding:10px;margin:14px 0;gap:9px}.keySettings select{max-width:195px}.tipsBar{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:11px;color:#c4c8d9;margin-bottom:9px}.tipsBar span:first-child{color:var(--green)}.graphFrame{border:1px solid #474863;border-radius:14px;background:#10182a;overflow:hidden}.canvasScroller{height:420px;overflow:auto;position:relative;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#4f5676 #1d2435}.canvasScroller canvas{display:block;touch-action:none;cursor:grab}.graphAxis{display:flex;justify-content:space-between;color:var(--soft);font-size:10px;margin:6px 1px 14px}.inspector{border:1px solid #4a4668;border-radius:14px;background:#171a2b;padding:12px 14px}.inspectorHead{display:flex;justify-content:space-between;align-items:center}.inspectorInputs{gap:8px;margin:10px 0}.inspectorInputs select{min-width:115px}.inspectorInputs input{width:95px}.danger{color:var(--red)!important}.sectionTimeline{border-top:1px solid var(--line);margin-top:18px;padding-top:13px}.arrangement{display:flex;gap:8px;overflow-x:auto;padding:7px 0 10px;scrollbar-width:thin}.arrangeBlock{min-width:125px;flex:0 0 auto;border:1px solid #52506c;border-radius:11px;padding:10px 9px;background:#141a29}.arrangeBlock.sel{border-color:var(--violet);background:#29213f}.arrangeBlock strong{display:block;font-size:12px;margin-bottom:6px}.arrangeBlock small{display:block;color:var(--muted);font-size:10px}.arrangeBlock .gapCtrl{display:flex;align-items:center;gap:3px;margin-top:9px;font-size:10px;color:#aab0c9}.arrangeBlock input{width:49px;padding:4px;font-size:11px;border-radius:6px}.footer{display:flex;justify-content:space-between;gap:12px;color:var(--soft);font-size:10px;line-height:1.5;margin:15px 4px}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,15px);background:#e9e6fd;color:#28213d;border-radius:12px;box-shadow:0 20px 50px #000a;padding:12px 18px;max-width:min(92vw,590px);font-size:12px;opacity:0;pointer-events:none;transition:.18s;z-index:200}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1150px){.topbar{padding:11px 15px}.app{padding:16px}.workspace{grid-template-columns:minmax(270px,39%) minmax(0,1fr);height:calc(100dvh - 315px)}.transportTop{flex-wrap:wrap}.welcome{margin-bottom:14px}}
+@media(max-width:780px){.privacy{display:none}.topbar{align-items:flex-start}.topActions{justify-content:flex-end}.welcome{align-items:flex-start}.workspace{grid-template-columns:minmax(0,1fr);height:auto;min-height:0}.lyricsPane,.editorPane{overflow:visible}.transport{padding:15px}.canvasScroller{height:330px}.footer{flex-direction:column}h1{font-size:26px}}
+@media(max-width:540px){.topbar{flex-wrap:wrap}.topActions{width:100%;justify-content:flex-start}.app{padding:10px}.welcome{display:block}.projectName{max-width:100%}.transportActions button{font-size:11px;padding:9px}.card{border-radius:14px}.lyricsPane,.editorPane{padding:14px}.transportBottom label{font-size:10px}.sectionBtns{flex-shrink:0}.keySettings label{flex-wrap:wrap}.canvasScroller{height:310px}}
+/* Atmospheric starter library — 128 locally generated, original melody sketches. */
+.moodLibrary{background:linear-gradient(145deg,#212039,#171f34);border:1px solid #625b86;border-radius:15px;margin:16px 0;overflow:hidden}
+.moodLibrary>summary{padding:14px 15px;list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;user-select:none}
+.moodLibrary>summary::-webkit-details-marker{display:none}
+.moodMark{font-size:23px;color:#f2c9ed;width:30px;flex-shrink:0;text-align:center}
+.moodLibrary>summary strong,.moodLibrary>summary small{display:block}
+.moodLibrary>summary strong{font-size:14px;margin-bottom:5px;color:#f5ebff}
+.moodLibrary>summary small{font-size:10px;color:#c0bada;line-height:1.6}
+.moodLibrary>summary small b{color:#f8d99a;font-weight:800}
+.moodToggle{margin-left:auto;white-space:nowrap;color:#b7a6e0;font-size:10px}
+.moodInside{border-top:1px solid #504966;padding:14px}
+.moodToolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.moodToolbar label{font-size:11px;color:#ded5ff;display:flex;align-items:center;gap:8px;flex:1;min-width:175px}
+.moodToolbar input{font-size:12px;min-width:0;flex:1;width:100%}
+.moodCount{font-size:10px;color:#a5e7d7}
+.moodCategories{display:flex;gap:7px;padding:3px 1px 12px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#665e8b transparent;scroll-snap-type:x proximity;overscroll-behavior-x:contain}
+.moodCategory{flex-shrink:0;white-space:nowrap;scroll-snap-align:start;background:#191a31;color:#cecade;border:1px solid #52506e;padding:8px 11px;min-height:34px;border-radius:999px;font-size:11px}
+.moodCategory.on{background:#65538f;color:#fff;border-color:#ac91f5;box-shadow:0 0 0 1px #a98ee033}
+.moodDescription{font-size:11px;color:#ddc9f5;margin-bottom:11px;line-height:1.6}
+.moodPresets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.moodPreset{border:1px solid #4b4768;background:#151b2c;border-radius:12px;padding:11px;min-width:0}
+.moodPresetTop{display:flex;align-items:center;gap:8px}
+.moodIndex{font-size:10px;font-weight:800;background:#34304d;color:#d9c1ff;padding:4px 6px;border-radius:6px}
+.moodPreset strong{font-size:12px;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.moodPreset p{font-size:10px;color:#a8acca;margin:7px 0 9px;line-height:1.5;min-height:15px}
+.moodPresetActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.moodPresetActions button{flex:1;min-width:72px}
+.moodFoot{font-size:10px;line-height:1.65;color:#b8b7d0;display:flex;flex-direction:column;gap:9px;margin-top:13px;border-top:1px solid #44445e;padding-top:12px}
+.moodFoot .switch{font-size:11px;justify-content:flex-start;color:#ded9f4}
+@media(max-width:1170px){.moodPresets{grid-template-columns:minmax(0,1fr)}.moodPreset p{min-height:0}}
+@media(max-width:780px){.moodPresets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.moodPresets{grid-template-columns:minmax(0,1fr)}.moodToolbar label{min-width:100%}}
+
+/* Chord workshop: browsable template library and user-created reusable progressions. */
+.chordLibrary{background:linear-gradient(135deg,#182a34,#1b1d32);border:1px solid #4c7480;border-radius:15px;margin:16px 0;overflow:hidden}
+.chordLibrary>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:11px;padding:15px;user-select:none}
+.chordLibrary>summary::-webkit-details-marker{display:none}
+.chordLibrary>summary strong,.chordLibrary>summary small{display:block}.chordLibrary>summary strong{font-size:14px;color:#e9fbfa;margin-bottom:4px}.chordLibrary>summary small{font-size:10px;line-height:1.5;color:#b0c9d1}.chordLibrary>summary b{color:#b3ffdf}
+.chordMark{font-size:26px;color:#a1eee0}.chordInside{border-top:1px solid #335761;padding:13px}.chordHeading{display:flex;align-items:center;justify-content:space-between;gap:9px;margin:0 0 9px}.chordHeading h3{font-size:13px;margin:0}.chordHeading small{display:block;color:#a5bfca;font-size:10px;margin-top:3px}.chordHeading span{font-size:10px;color:#a5ffdf}
+.chordToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.chordToolbar input{min-width:165px;flex:1}.chordCategories{display:flex;overflow-x:auto;gap:6px;margin:12px 0;padding-bottom:6px;overscroll-behavior:contain;scrollbar-width:thin}.chordCategory{font-size:11px;min-width:max-content;background:#1c2937;border:1px solid #456270;color:#c8dedf;border-radius:25px;padding:7px 10px;min-height:30px}.chordCategory.on{background:#37677b;border-color:#86c6d0;color:white}
+.chordCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:274px;overflow-y:auto;overscroll-behavior:contain;padding:2px}.chordCard{padding:10px;border:1px solid #405e72;border-radius:11px;background:#131d29;min-width:0}.chordCard strong{display:block;overflow-wrap:anywhere;color:#eff7ff;font-size:12px}.chordCard small{display:block;color:#97b7c5;font-size:10px;margin:4px 0}.chordSymbols{display:flex;gap:4px;flex-wrap:wrap;font-size:11px;color:#f1dcad;margin:8px 0;line-height:1.5}.chordSymbols span{background:#2d3140;border-radius:5px;padding:2px 5px}.chordCardActions{display:flex;gap:5px;flex-wrap:wrap}.chordCardActions button{flex:1;min-width:70px}.chordEmpty{font-size:11px;color:#aac8d8;padding:15px 2px}
+.chordEditHead{margin-top:18px;padding-top:14px;border-top:1px solid #3d5769}.chordDraftSettings{display:grid;grid-template-columns:1fr 1fr;gap:8px}.chordDraftSettings label{font-size:11px;color:#c1d5e1}.chordDraftSettings input{display:block;width:100%;margin-top:5px}.chordKeyLabel{font-size:11px;color:#a7f2dd}.chordDraftRows{display:flex;flex-direction:column;gap:6px}.chordStep{display:grid;grid-template-columns:22px minmax(74px,1fr) minmax(96px,1.3fr) 74px 27px 27px 27px;gap:4px;align-items:center;padding:6px;background:#192435;border:1px solid #344e64;border-radius:10px;min-width:0}.chordStep .chordNumber{font-size:10px;color:#8bafc6;text-align:center}.chordStep select{font-size:11px;min-width:0;width:100%;padding:7px 3px}.chordStep .stepMove,.chordStep .stepRemove{min-width:25px;width:27px;height:32px;min-height:32px;padding:1px;font-size:12px}.chordStep .stepRemove{color:#ffb8b8}.chordDraftActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.chordDraftActions button{flex:1;white-space:normal;min-width:125px}.chordApplied{font-size:11px;line-height:1.6;margin:13px 0;color:#bdfff1;border-left:3px solid #80c9b9;padding:8px;background:#21353c}.chordBackup{display:flex;flex-direction:column;gap:8px;font-size:10px;color:#b1bfcf;padding:10px 0;border-top:1px solid #395167}.chordBackup>div{display:flex;gap:7px;flex-wrap:wrap}.chordNotice{font-size:10px;color:#a7b4c7;line-height:1.65;margin:4px 0 0}
+@media(max-width:1120px){.chordCards{grid-template-columns:1fr}}
+@media(max-width:780px){.chordCards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:530px){.chordCards{grid-template-columns:1fr}.chordDraftSettings{grid-template-columns:1fr}.chordStep{grid-template-columns:17px minmax(58px,1fr) minmax(65px,1.2fr) 57px 23px 23px 23px;gap:2px;padding:5px 3px}.chordStep select{font-size:10px}.chordStep .stepMove,.chordStep .stepRemove{width:23px;min-width:23px}}
+
+.autoHarmonyPanel{background:#171b2b;border:1px solid #485477;border-radius:15px;padding:16px;margin:16px 0;color:#f0edfb}
+.autoHead{display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap}.autoHead h3{margin:5px 0 7px}.autoHead.sub{border-top:1px solid #394158;padding-top:13px;margin-top:14px}
+.autoHelp{font-size:10px;color:#97d6cb}.autoToolbar{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;align-items:center}.autoToolbar label{display:flex;align-items:center;gap:5px;font-size:11px;color:#c6cde0}
+.autoToolbar input{width:70px}.autoToolbar select{max-width:120px}.autoToolbar button.on{border-color:#8aebd0;background:#23554a;color:#d9fff8}
+.autoChordResults{display:grid;gap:8px;margin:12px 0}.autoCandidate{border:1px solid #444b67;background:#22293c;border-radius:11px;padding:9px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.autoCandidate strong{display:block;font-size:12px}.autoCandidate small{display:block;font-size:11px;color:#b6bad0;margin-top:4px}.autoActions{display:flex;gap:5px;flex-wrap:wrap;justify-content:end;flex-shrink:0}
+.autoAppliedChords{max-height:190px;overflow:auto;overscroll-behavior:contain;font-size:11px;color:#c1c4d8}.autoChordUnit{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px dotted #444967;padding:6px 0}
+.autoChordUnit select{font-size:11px;padding:6px;max-width:137px}.autoChordUnit b{color:#93e7d1}
+@media(max-width:580px){.autoHarmonyPanel{padding:11px}.autoCandidate{flex-direction:column;align-items:start}.autoCandidate .autoActions{align-self:flex-end}}
+
+#applyDraftToRange{border-color:#77cabc;color:#c5fff1}
+
+.bridge-note{margin:14px 0;padding:14px 18px;color:#ded9ee;line-height:1.65;border-left:3px solid #a899e6}.bridge-note strong{color:#f5f2ff}
+
+/* v0.5.0: full-width stacked lyrics and melody editor. */
+.workspace{display:flex!important;flex-direction:column!important;height:auto!important;min-height:0!important;gap:18px!important;grid-template-columns:none!important}
+.workspace > .lyricsPane,.workspace > .editorPane{width:100%;min-width:0;min-height:0;overflow:visible!important;max-height:none!important;padding:19px 20px}
+.workspace .sectionList{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));align-items:start}
+.workspace .lyricsPane #lyricsInput,.workspace .lyricsPane #readingInput{min-height:96px}
+.graphToolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:12px 0 10px;padding:10px 12px;background:#171e31;border:1px solid #3d4562;border-radius:11px}
+.graphHint{font-size:11px;color:#b9cce0;line-height:1.5}
+.graphNav{display:flex;gap:6px;flex-wrap:wrap}
+.songLength{font-size:11px;color:#93e0cd;white-space:nowrap;font-variant-numeric:tabular-nums}
+.canvasScroller{height:clamp(390px,59dvh,690px)!important;max-width:100%;overflow:auto;position:relative;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.canvasSpace{position:relative;min-width:100%;min-height:100%}
+.canvasSpace canvas{position:sticky;left:0;top:0;display:block;touch-action:none;cursor:grab;z-index:1}
+@media(max-width:780px){.canvasScroller{height:clamp(365px,56dvh,580px)!important}.graphNav{width:100%}}
+@media(max-width:540px){.workspace .sectionList{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.workspace > .lyricsPane,.workspace > .editorPane{padding:14px}.canvasScroller{height:400px!important}}
+/* v0.5.1: iPad-friendly touch targets, sound test and explicit duration handles */
+.c4jump{border-color:#c49d55!important;color:#ffe3a5!important}
+.graphNav button{min-height:42px;touch-action:manipulation}
+.audioHelp{color:#a8b7d0}
+#audioStatus{display:inline-block;border:1px solid #526079;border-radius:7px;padding:5px 9px;margin:4px 6px;font-weight:600;color:#b6eacb}
+.noteActionMenu[hidden]{display:none!important}
+.noteActionMenu{position:fixed;z-index:300;display:flex;align-items:center;flex-wrap:wrap;gap:9px;max-width:min(94vw,370px);padding:10px 12px;border:1px solid #7d719b;background:#29263e;box-shadow:0 12px 30px #000b;border-radius:13px;touch-action:manipulation}
+.noteActionMenu strong{width:100%;font-size:13px;color:#eee5ff}
+.canvasSpace canvas{cursor:crosshair!important;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+@media(max-width:560px){.graphNav{gap:5px}.graphNav button{flex:1 1 auto;font-size:11px}}
+
+#volumeReadout{display:inline-block;min-width:36px;font-size:12px;color:#baf5dc;font-variant-numeric:tabular-nums}.volume{width:125px!important;min-height:32px}
+
+/* v0.5.3 audio path selection */
+.audioEngineSetting{display:inline-flex;align-items:center;gap:6px;margin-right:8px;font-weight:700;color:#eadffd}.audioEngineSetting select{max-width:210px;font-size:12px;padding:7px 9px}.canvasSpace canvas{outline:0;touch-action:none}
+
+/* v0.5.4: one-step, reliably tappable nudge controls for iPad touch editing. */
+.nudgeTools{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:10px 0 6px;padding:10px;border:1px solid #4b536d;border-radius:10px;background:#131d30}
+.nudgeTools span{font-size:12px;color:#e1d7ff;font-weight:700;margin-right:8px}
+.nudgeTools button{touch-action:manipulation;min-height:45px;min-width:79px;font-size:13px}
+@media(max-width:620px){.nudgeTools span{flex:1 0 100%}.nudgeTools button{flex:1 1 calc(50% - 8px)}}
+
+/* v0.5.5: access playback directly beside the selected note. */
+.inspectorInputs .fromSelectedButton{font-size:12px;min-height:38px;padding:9px 15px;box-shadow:0 0 0 1px #a78beb2b}
+.inspectorInputs .fromSelectedButton:disabled{box-shadow:none}
+.inspectorInputs{align-items:center}
+@media(max-width:680px){.inspectorInputs .fromSelectedButton{flex:1;min-width:140px}}
+
+/* v0.5.6: selectable notes, 32nd/64th timing and denser chord editor */
+.beatGridLabel{display:flex;align-items:center;gap:7px;font-size:12px;color:#d9d0f3;white-space:nowrap}.beatGridLabel select{max-width:200px;font-size:12px}
+.groupMoveBar{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:10px 0;padding:9px 11px;background:#182438;border:1px solid #405b68;border-radius:10px}
+.groupMoveBar strong{font-size:12px;color:#b7f7e3;margin-right:5px}.groupMoveBar small{font-size:10px;color:#afc0d5}.groupMoveBar button{min-height:37px;min-width:42px}
+#groupSelectMode.on{background:#23645c;color:#d5fff5;border-color:#7cebcf}
+.chordFeelBar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:12px;margin-bottom:14px;background:#122637;border:1px solid #437582;border-radius:12px}
+.chordFeelBar label{font-size:12px;color:#d3f4fb}.chordFeelBar select{margin-left:8px;max-width:240px}.chordFeelBar small{color:#a4cad8;font-size:10px}
+.chordStep{grid-template-columns:22px minmax(67px,1fr) 56px minmax(92px,1.3fr) 72px 27px 27px 27px}
+@media(max-width:530px){.chordStep{grid-template-columns:17px minmax(48px,1fr) 40px minmax(59px,1.2fr) 52px 23px 23px 23px}.chordStep select{font-size:10px}}
+
+/* v0.5.7: fixed-do / alphabet pitch notation control */
+.graphToolbar .beatGridLabel[for="pitchNotation"]{white-space:nowrap}
+.graphToolbar #pitchNotation{min-width:158px}
+@media(max-width:580px){.graphToolbar #pitchNotation{min-width:145px;max-width:180px}}
+
+/* Fixed, collapsible local-audio reference player. It does not change the editor layout. */
+.referenceWidget{position:fixed;right:18px;bottom:calc(15px + env(safe-area-inset-bottom,0px));width:min(375px,calc(100vw - 24px));z-index:170;background:#202538f8;color:var(--text);border:1px solid #5a6484;box-shadow:0 12px 38px #060715bd;border-radius:15px;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.referenceWidget.is-collapsed{width:auto;max-width:calc(100vw - 24px)}
+.referenceTop{display:flex;align-items:stretch;justify-content:space-between}
+.referenceToggle{display:flex;align-items:center;justify-content:space-between;gap:11px;background:none;color:#f0edfb;border:0;padding:9px 12px;min-height:38px;font-size:12px;font-weight:700;width:100%;text-align:left;white-space:nowrap}
+.referenceToggle:focus-visible,.referenceWidget button:focus-visible{outline:2px solid var(--green);outline-offset:-2px}
+.referenceIndicator{display:inline-block;width:6px;height:6px;border-radius:50%;background:#6b7387;flex:0 0 auto}
+.referenceIndicator.is-ready{background:#90dfca}
+.referenceIndicator.is-playing{background:#92e5d7;box-shadow:0 0 10px #84f2d7}
+.referenceCompactPlay{border-radius:0;background:#283c47;color:#b7fff1;min-height:38px;width:45px;padding:4px;border-left:1px solid #59647a;font-size:15px}
+.referenceBody{border-top:1px solid #404860;padding:10px 12px 9px;display:grid;gap:8px}
+.referenceBody[hidden],.referenceWidget [hidden]{display:none!important}
+.referenceFileRow{display:flex;align-items:center;gap:8px;min-width:0}
+.referenceChoose{background:#303754;color:#e9dcff;border:1px solid #63678c;padding:6px 9px;min-height:32px;font-size:11px;font-weight:650;white-space:nowrap;flex-shrink:0}
+.referenceFileName{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#c3c7d8;font-size:11px;flex:1}
+.referenceRemove{min-height:30px;min-width:30px;padding:3px;color:#ffc2c1;background:#3b3144;border:1px solid #796372}
+.referencePlayback{display:flex;align-items:center;gap:8px}
+.referencePlayback button{width:37px;min-width:37px;min-height:37px;padding:5px;background:#28615f;color:white;border:1px solid #4bada5;border-radius:10px}
+.referencePlayback output{font-size:10px;color:#bdc1d5;font-variant-numeric:tabular-nums;white-space:nowrap}
+.referencePlayback input{flex:1;width:30px;min-width:25px;height:17px;accent-color:#93dace}
+.referenceSettings{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.referenceSettings label{font-size:10px;color:#c5c6d8;display:flex;gap:6px;align-items:center}
+.referenceSettings input{width:100px;max-width:24vw;accent-color:#93dace}
+.referenceSettings select{font-size:11px;min-height:30px;padding:4px 7px;border-radius:7px}
+.referenceHint{color:#aeb5c9;font-size:10px;line-height:1.35;min-height:14px}
+.referenceWidget audio{display:none}
+@media(max-width:540px){.referenceWidget{right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px))}.referenceSettings input{max-width:100px}.referenceBody{padding:9px}}
+@media(prefers-reduced-motion:reduce){.referenceWidget *{transition:none!important}}
+
+/* v0.5.9 – chord arrangement timeline, synchronized to the song's beats. */
+.chordTrackPanel{margin:17px 0;border-radius:15px;border:1px solid #585577;background:linear-gradient(145deg,#20243a,#151d2b);padding:15px}
+.chordTrackHead{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:9px}.chordTrackHead h3{margin:3px 0;font-size:16px}.chordTrackHead p{margin:5px 0 3px}.chordTrackActions,.chordTrackFooter,.chordClipNudges{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:11px 0}.chordTrackActions label{margin-left:auto;color:#c9bedf;font-size:11px;display:flex;align-items:center;gap:6px}.chordTrackActions select{min-height:33px;font-size:11px;padding:6px}
+.chordTrackScroller{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;border:1px solid #505879;background:#10192a;border-radius:12px;scrollbar-color:#70658c #111a2a;scrollbar-width:thin}
+.chordTrackWorld{height:135px;position:relative;min-width:100%;isolation:isolate}.chordTrackRuler{position:absolute;top:0;left:0;right:0;height:30px;border-bottom:1px solid #414866;background:#171a2c}.chordTick{position:absolute;top:6px;font-size:10px;color:#a9b1ca;border-left:1px solid #5e5e7e;padding-left:4px;white-space:nowrap;min-height:23px}.chordTrackSections{position:absolute;top:31px;height:41px;width:100%;background:#151d31}.chordSection{position:absolute;height:35px;top:3px;display:block;border:1px solid #787495;background:#393653;color:#e8ddff;font-size:11px;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:6px 8px;border-radius:5px}.chordSection.selected{background:#5b487b;border-color:#a78bff}.chordTrackClips{position:absolute;top:74px;left:0;width:100%;height:61px;background:repeating-linear-gradient(90deg,#1c2433 0px,#1c2433 1px,transparent 1px,transparent 100px)}.timedChord{position:absolute;top:11px;height:36px;min-width:9px;background:#416b77;border:1px solid #80c5c6;border-radius:7px;color:#e7ffff;font-weight:700;font-size:11px;cursor:grab;touch-action:none;user-select:none;white-space:nowrap;overflow:visible;display:flex;align-items:center;justify-content:space-between;padding:0 3px 0 8px;gap:4px;box-shadow:0 2px 8px #0005}.timedChord.activeSection{background:#62558b;border-color:#ab9aff}.timedChord.selected{z-index:4;border:2px solid #f2d79c;background:#7561a3}.timedChord span:first-child{overflow:hidden;text-overflow:ellipsis}.timedChordHandle{flex:0 0 17px;min-width:17px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:5px;background:#ffffff22;font-size:16px;cursor:ew-resize;touch-action:none}
+.chordTrackFooter{justify-content:flex-start;font-size:11px;color:#d4cfe3}.chordTrackFooter span{flex:1;min-width:180px}.chordClipInspector{padding:12px;margin-top:9px;border:1px solid #77719a;border-radius:12px;background:#171b2c}.chordClipInspector[hidden]{display:none}.chordInspectorTitle{display:flex;align-items:center;justify-content:space-between;gap:9px;font-size:12px}.chordClipFields{display:grid;grid-template-columns:repeat(3,minmax(115px,1fr));gap:8px;margin-top:11px}.chordClipFields label{font-size:10px;color:#c3c9db;display:flex;flex-direction:column;gap:5px}.chordClipFields input,.chordClipFields select{width:100%;min-width:0;font-size:12px;min-height:37px}.chordClipFields button{align-self:end}.chordNoVocal{border-top:1px solid #454968;margin-top:14px;padding-top:13px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}.chordNoVocal label{display:flex;align-items:center;gap:5px;font-size:11px}.chordNoVocal input{width:64px;font-size:12px;padding:6px}.chordNoVocal small{color:#adb1ce;font-size:10px}
+@media(max-width:630px){.chordTrackPanel{padding:10px}.chordClipFields{grid-template-columns:repeat(2,minmax(100px,1fr))}.chordTrackHead>button{width:100%}.chordTrackActions label{margin:0}}
+
+.timedChord.compact .timedChordHandle{display:none}.timedChord.compact{padding:0 4px;justify-content:flex-start}
+
+/* Melody layers: large iPad touch targets, always immediately above the piano roll. */
+.melodyTabDock{position:sticky;top:0;z-index:15;background:#19263b;border:1px solid #52627b;border-radius:14px;padding:10px;margin:10px 0 12px;box-shadow:0 6px 18px #0004}
+.melodyTabRow{display:flex;gap:8px;align-items:stretch}.melodyTabBar{display:flex;gap:8px;overflow-x:auto;flex:1;min-width:0;padding-bottom:4px;scrollbar-width:thin}
+.melodyTab{flex:none;min-height:48px;min-width:104px;padding:9px 15px;border-radius:11px;border:2px solid #57657d;background:#25354d;color:#f1f5ff;font-size:15px;font-weight:700;touch-action:manipulation}
+.melodyTab.active{background:var(--tab-color);color:#131d2c;border-color:#fff;box-shadow:0 0 0 2px #fff2}
+.melodyTabAdd{flex:none;min-height:48px;padding:8px 14px;border-radius:11px;background:#2d4b56;color:#eafffb;border:1px solid #7cd5cb;font-weight:750}
+.melodyTabOptions,.transcribeRow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px}.melodyTabOptions label,.transcribeRow label{display:flex;align-items:center;gap:6px;color:#d7e4f3;font-size:13px}.melodyTabOptions select,.transcribeRow select{min-height:38px;border-radius:8px}.transcribeRow{border-top:1px solid #4b5a70;padding-top:8px}.transcribeRow #transcribeStatus{font-size:12px;color:#c3d4e5}
+@media(max-width:650px){.melodyTabDock{padding:8px}.melodyTab{min-width:94px;padding:8px 11px}.melodyTabOptions button{min-height:38px}}
+
+/* v0.7.1: editing transport stays visible next to the piano roll */
+.editorTransport{position:sticky;top:0;z-index:12;background:var(--panel,#fff);background:color-mix(in srgb,var(--panel,#fff) 96%,transparent);border:1px solid var(--border,#ccd3dc);border-radius:12px;padding:10px;margin:10px 0;box-shadow:0 3px 14px #00000012;backdrop-filter:blur(8px)}
+.editorTransportHeading{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}.editorTransportHeading span,.editorTransport small{font-size:11px;opacity:.75}
+.editorTransportButtons{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:7px 0}.editorTransportButtons button{min-height:43px;min-width:112px;flex:1 1 125px;touch-action:manipulation}.chordButtons{border-top:1px solid #8883;padding-top:8px}.chordButtonsLabel{font-weight:700;font-size:12px;min-width:72px}
+@media(max-width:550px){.editorTransportButtons button{min-width:calc(50% - 7px);flex:1 1 calc(50% - 7px)}.editorTransport{top:0;padding:8px}}
+
+/* v0.7.2: Restore a prominent green, expandable sound editor without removing any controls. */
+.noteEditDisclosure{margin:12px 0;border:1px solid #3e8c79;border-radius:14px;background:#112c29;overflow:hidden}
+.noteEditDisclosure>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 15px;min-height:54px;background:#17624e;color:#f0fff9;font-size:15px;font-weight:750;touch-action:manipulation}
+.noteEditDisclosure>summary::-webkit-details-marker{display:none}
+.noteEditDisclosure>summary span{font-size:11px;font-weight:500;color:#d2f5e6}
+.noteEditDisclosure[open]>summary{background:#21745d}
+.noteEditDisclosure .inspector{border:0;border-radius:0}
+.noteActionMenu #menuEditDetails{min-height:38px;background:#17624e;border-color:#3aab85;color:white}
+@media(max-width:640px){.noteEditDisclosure>summary{align-items:flex-start;flex-direction:column;gap:3px}.noteEditDisclosure>summary span{font-size:10px}}
+
+/* v0.7.3: compact playback controls persist near the editable piano roll. */
+.quickSelectedPlayback{position:sticky;bottom:12px;z-index:24;display:flex;justify-content:flex-end;gap:6px;pointer-events:none;margin:4px 10px -1px 0}
+.quickSelectedPlayback button{pointer-events:auto;min-height:43px;box-shadow:0 4px 14px #0005;border-radius:13px;font-weight:750;touch-action:manipulation}
+.quickSelectedPlay{background:#19735a!important;color:#fff!important;border:1px solid #48ae91!important;padding:9px 13px!important}
+.quickSelectedStop{background:#273438!important;color:#fff!important;border:1px solid #6e8582!important;min-width:43px}
+.quickSelectedPlay:disabled{opacity:.45}
+@media(min-width:900px){.quickSelectedPlayback{bottom:16px}}
+
+/* v0.7.4: minimal, non-overlaying play button. Never covers notes or editing gestures. */
+.quickSelectedPlayback{position:static!important;bottom:auto!important;z-index:auto!important;display:flex!important;justify-content:flex-end!important;margin:2px 2px 4px 0!important;gap:0!important;height:29px!important;pointer-events:auto!important}
+.quickSelectedPlayback .quickSelectedPlay{width:29px!important;height:29px!important;min-width:29px!important;min-height:29px!important;max-width:29px!important;padding:0!important;border-radius:7px!important;font-size:13px!important;line-height:1!important;box-shadow:none!important}
+
+.advancedAudioRead{width:100%;border:1px solid #497968;border-radius:12px;margin:10px 0;padding:0;background:#132923}
+.advancedAudioRead>summary{padding:12px 14px;color:#baf1d4;font-weight:700;cursor:pointer;min-height:44px}
+.advancedAudioReadGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:12px}
+.advancedAudioReadGrid label{display:flex;flex-direction:column;gap:5px;font-size:13px}
+.advancedAudioReadGrid select{max-width:100%;min-height:40px}
+.advancedAudioRead .tinyHint{padding:0 12px 12px}
+
+/* v0.7.6: compact secondary tools; the melody tabs remain directly accessible. */
+.compactToolDetails{border:1px solid #43565a;border-radius:10px;margin-top:6px;min-width:0}
+.compactToolDetails>summary{padding:8px 11px;min-height:38px;font-size:12px;font-weight:700;cursor:pointer;list-style:none;touch-action:manipulation}
+.compactToolDetails>summary::-webkit-details-marker{display:none}
+.compactToolDetails[open]>summary{border-bottom:1px solid #43565a}
+.compactToolDetails .melodyTabOptions,.compactToolDetails .transcribeRow{padding:8px;gap:8px}
+.tabMergeTools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px}
+.tabMergeTools label{font-size:12px}
+.tabMergeTools select{max-width:210px;min-height:38px}
+.tabMergeTools small{width:100%;font-size:11px;opacity:.78}
+@media(max-width:620px){.compactToolDetails>summary{font-size:12px}.tabMergeTools{align-items:stretch;flex-direction:column}}
+
+/* v0.7.7: collapsed multi-chord sequencer inside the editor */
+.editorChordSequence{margin:8px 0}
+.editorChordSequence>summary span{opacity:.8;font-weight:500}
+.editorChordSequenceBody{padding:8px 10px}
+.editorChordSequenceActions{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.editorChordRows{display:flex;flex-direction:column;gap:7px;max-height:340px;overflow-y:auto}
+.editorChordRow{display:flex;flex-wrap:wrap;gap:7px;align-items:end;padding:8px;border:1px solid #465c5b;border-radius:10px}
+.editorChordRow strong{min-width:62px;align-self:center}
+.editorChordRow label{display:flex;flex-direction:column;gap:4px;font-size:11px}
+.editorChordRow input{width:70px;min-height:36px}
+.editorChordRow select{max-width:130px;min-height:36px}
+.editorChordRow button{min-width:35px;min-height:36px}
+
+/* v0.8.0: selection clipboard stays folded to preserve editing space. */
+.noteClipboardTools>summary{display:flex;align-items:center;gap:7px}
+.noteClipboardTools>summary span{font-size:11px;font-weight:400;opacity:.75}
+.noteClipboardBody{padding:8px 10px 12px}
+.noteClipboardActions{display:flex;flex-wrap:wrap;gap:6px}
+.noteClipboardActions button{min-height:39px}
+.notePastePosition{display:flex;align-items:center;gap:8px;margin:9px 0;font-size:12px}
+.notePastePosition input{width:110px;max-width:50%;min-height:38px}
+.noteClipboardHint{font-size:11px;opacity:.8}
+
+/* v0.8.4: editing-first compact control strips. All old controls remain inside disclosure. */
+.melodyTabDock .compactToolDetails,
+.noteClipboardTools,.editorTransportDisclosure{margin:3px 0!important}
+.compactToolDetails>summary{min-height:27px!important;padding:4px 9px!important;font-size:11px!important;line-height:1.35!important}
+.editorTransport.compactToolDetails{padding:0!important;min-height:0!important;display:block!important;background:transparent!important}
+.editorTransport.compactToolDetails>summary{display:list-item!important;cursor:pointer!important}
+.editorTransport.compactToolDetails:not([open])>.editorTransportHeading,
+.editorTransport.compactToolDetails:not([open])>.editorTransportButtons,
+.editorTransport.compactToolDetails:not([open])>small{display:none!important}
+.editorTransport.compactToolDetails[open]>.editorTransportHeading,
+.editorTransport.compactToolDetails[open]>.editorTransportButtons{margin:6px!important}
+.editorTransport.compactToolDetails[open]>small{display:block;margin:6px!important}
+.compactToolDetails .transcribeRow{padding:6px!important;gap:5px!important}
+.compactToolDetails .transcribeRow label{font-size:11px!important}
+.advancedAudioRead>summary{min-height:30px!important;padding:5px 9px!important;font-size:11px!important}
+.melodyTabDock{padding-top:3px!important}
+
+/* v0.8.5: four compact tab-like menus, with a single expanded panel below */
+.compactMenuRail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;margin:4px 0 6px;align-items:start;width:100%}
+.compactMenuRail>.railPanel{grid-column:span 1;min-width:0;margin:0!important;border:1px solid #415d69!important;border-radius:7px!important;overflow:visible;background:#172438!important}
+.compactMenuRail>.railPanel>summary{height:32px!important;min-height:32px!important;padding:6px 2px!important;display:flex!important;align-items:center;justify-content:center;text-align:center;font-size:11px!important;white-space:nowrap;list-style:none;border-radius:6px;cursor:pointer}
+.compactMenuRail>.railPanel>summary::-webkit-details-marker{display:none}
+.compactMenuRail>.railPanel[open]{grid-column:1/-1;display:block!important;border-radius:8px!important;overflow:visible}
+.compactMenuRail>.railPanel[open]>summary{width:25%;background:#236357!important;color:white!important;border-radius:7px 7px 0 0;border-bottom:0!important;position:relative;top:-1px}
+.compactMenuRail>.railPanel[open]>.editorTransportHeading,
+.compactMenuRail>.railPanel[open]>.editorTransportButtons{display:flex!important}
+.compactMenuRail>.railPanel[open]>.editorTransportButtons{flex-wrap:wrap}
+.compactMenuRail>.railPanel[open]>small{display:block!important}
+.compactMenuRail>.railPanel[open]>.melodyTabOptions,
+.compactMenuRail>.railPanel[open]>.transcribeRow,
+.compactMenuRail>.railPanel[open]>.noteClipboardBody,
+.compactMenuRail>.railPanel[open]>.tabMergeTools{padding:8px!important}
+.compactMenuRail>.railPanel[open]>.noteClipboardBody{display:block}
+.compactMenuRail>.railPanel[open]>.editorTransportHeading{padding:8px}
+.compactMenuRail>.railPanel[open]>.editorTransportButtons{padding:6px}
+@media(min-width:700px){.compactMenuRail>.railPanel>summary{font-size:12px!important}}
+
+/* Two-finger gestures are handled by the canvas; do not zoom the whole page. */
+.canvasScroller canvas{touch-action:none!important;}
+
+/* v0.8.9: compact trim action by section length controls */
+.chordNoVocal #trimSectionTail{background:#29473e;border-color:#508a74;color:#e3f8ed}
+.chordNoVocal .trimGapOption{display:inline-flex;align-items:center;gap:5px;font-size:12px;white-space:normal}
