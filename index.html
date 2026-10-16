@@ -4,12 +4,12 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#121821"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Music Atelier">
 <title>Music Atelier — Arrange · Mix · Connect</title>
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=014">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=016">
 </head>
 <body>
 <div class="app-shell">
 <header class="topbar">
- <div class="brand"><span class="mark">◈</span><div><span class="eyebrow">ATELIER SERIES / 03</span><strong>Music Atelier <em>v0.1.5</em></strong></div></div>
+ <div class="brand"><span class="mark">◈</span><div><span class="eyebrow">ATELIER SERIES / 03</span><strong>Music Atelier <em>v0.1.6</em></strong></div></div>
  <div class="top-actions"><span id="saveState" class="save-status">端末内に保存</span><button id="newProjectBtn" class="btn ghost" title="新しい曲">＋ 新しい曲</button><button id="helpBtn" class="btn ghost" title="使い方">？ 使い方</button><button id="backupBtn" class="btn ghost">↓ プロジェクトZIP</button></div>
 </header>
 <main class="content">
@@ -42,7 +42,7 @@
  </section>
  <section class="card arrangement-card" aria-label="トラック一覧と全体構成">
   <div class="section-title"><span class="eyebrow">03 / ARRANGEMENT</span><h2>トラック</h2><span class="fine">選択すると下の音符エディターに表示されます</span></div>
-  <div class="toolbar"><label>追加する楽器 <select id="instrumentSelect"><option value="piano">ピアノ</option><option value="guitar">エレキギター</option><option value="bass">ベース</option><option value="drums">ドラム</option><option value="violin">ヴァイオリン</option><option value="synth">シンセ</option></select></label><button id="addTrackBtn" class="btn bright small">＋ 楽器トラック</button><button id="removeTrackBtn" class="btn ghost small">選択トラックを削除</button><span class="spacer"></span><label>表示倍率 <input id="arrZoom" type="range" min="7" max="32" value="12"></label></div>
+  <div class="toolbar"><label>追加する楽器 <select id="instrumentSelect"><option value="piano">ピアノ</option><option value="guitar">エレキギター</option><option value="acoustic">アコースティックギター</option><option value="harp">ハープ</option><option value="musicbox">オルゴール</option><option value="bass">ベース</option><option value="drums">ドラム</option><option value="violin">ヴァイオリン</option><option value="synth">シンセ</option></select></label><button id="addTrackBtn" class="btn bright small">＋ 楽器トラック</button><button id="removeTrackBtn" class="btn ghost small">選択トラックを削除</button><span class="spacer"></span><label>表示倍率 <input id="arrZoom" type="range" min="7" max="32" value="12"></label></div>
   <div class="arrange-container"><div id="trackList" class="track-list"></div><div id="arrScroll" class="arr-scroll"><canvas id="arrCanvas" aria-label="曲全体のトラックタイムライン"></canvas></div></div>
   <div class="hint">楽器ごとの音量・左右・ミュート・ソロを調整できます。トラックの時間軸をタップすると、そこから再生します。</div>
  </section>
@@ -78,11 +78,11 @@
   <div class="output-options"><label class="check"><input id="voiceGuideMelody" type="checkbox" checked> Voice録音用ガイドにメロディーも含める</label><label class="check"><input id="normalize" type="checkbox" checked> 音割れを防ぐため音量を調整</label></div>
   <p class="caution"><strong>Voiceへの共有：</strong>Voice Atelierでは「Melody連携ZIPを取り込む」から読み込めます。録音後は「ガイド音声も完成WAVに混ぜる」を<strong>OFF</strong>にして歌声だけを書き出し、そのWAVをここへ取り込むと伴奏が二重になりません。再連携はVoice側の録音を置き換えるため、先にVoiceのZIPバックアップを作ってください。</p>
  </section>
- <footer class="footer">Music Atelier v0.1.5 · ローカル音源合成（録音楽器サンプルではありません） · GitHub Pages対応 · 外部CDN／サーバーへの音声送信なし · Safariで動作確認が必要な試作版</footer>
+ <footer class="footer">Music Atelier v0.1.6 · ローカル音源合成（録音楽器サンプルではありません） · GitHub Pages対応 · 外部CDN／サーバーへの音声送信なし · Safariで動作確認が必要な試作版</footer>
 </main>
 </div>
 <dialog id="sectionDialog"><form method="dialog" id="sectionForm"><h2>ブロックの編集</h2><label>名前<input id="sectionName" maxlength="30" required></label><label>小節数 <input id="sectionBars" type="number" min="1" max="48" value="4" required></label><label>歌詞（任意）<textarea id="sectionLyrics" rows="5" placeholder="イントロ・間奏なら空欄でOK"></textarea></label><div class="dialog-buttons"><button type="button" id="sectionCancel" class="btn ghost">キャンセル</button><button id="sectionApply" value="ok" class="btn bright">保存する</button></div></form></dialog>
-<dialog id="helpDialog"><div class="help-content"><h2>Music Atelier の使い方</h2><p><strong>1.</strong> Melody Atelierで「Voice Atelierへ渡すZIP」を保存し、ここで「Melody Atelierから」を選択します。曲構成・歌詞・メロディー・コード進行を読み込みます。</p><p><strong>2.</strong> トラックを選び、下のピアノロールに音を追加します。「コードから伴奏生成」で読み込んだコードをピアノ・ベース・ギター・ドラムに変換することもできます。</p><p><strong>3.</strong> 「Voice Atelierへ渡すZIP」を作り、Voice Atelier側の「Melody連携ZIPを取り込む」で読み込みます。Voice側ではその音声が「♪ メロディーガイド」という名前になりますが、実体は伴奏を含む録音用ガイドです。</p><p><strong>4.</strong> Voice Atelierで歌を録音。「ガイド音声も完成WAVに混ぜる」はOFFのままWAV保存します。Music Atelierの「Voice Atelierの歌声」でそのファイルを取り込み、歌声トラックを選択して音量・位置を調整します。最終ミックスをWAV保存します。</p><p><strong>5.</strong> 「プロジェクトZIP」は編集データと追加した音声も含むバックアップ。通常の曲作りはこの端末・このURLへ自動保存しますが、Safariデータの消去・端末の容量整理などで失われる場合があるため、こまめにZIPも保存してください。</p><p><strong>制限：</strong>標準ブラウザー音源から合成した音色であり、サンプリング音源ではありません。書き出しは最大6分、音声インポートはファイルあたり80MB／6分まで。Safari実機検証は未実施。Melody連携ZIPとVoice用ZIPは無圧縮形式に対応。音声は外部サービスへ送信しません。</p><div class="dialog-buttons"><button id="closeHelp" class="btn bright">閉じる</button></div></div></dialog>
+<dialog id="helpDialog"><div class="help-content"><h2>Music Atelier の使い方</h2><p><strong>1.</strong> Melody Atelierで「Voice Atelierへ渡すZIP」を保存し、ここで「Melody Atelierから」を選択します。曲構成・歌詞・メロディー・コード進行を読み込みます。</p><p><strong>2.</strong> トラックを選び、下のピアノロールに音を追加します。「コードから伴奏生成」で読み込んだコードをピアノ・ベース・ギター・ドラムに変換することもできます。</p><p><strong>3.</strong> 「Voice Atelierへ渡すZIP」を作り、Voice Atelier側の「Melody連携ZIPを取り込む」で読み込みます。Voice側ではその音声が「♪ メロディーガイド」という名前になりますが、実体は伴奏を含む録音用ガイドです。</p><p><strong>4.</strong> Voice Atelierで歌を録音。「ガイド音声も完成WAVに混ぜる」はOFFのままWAV保存します。Music Atelierの「Voice Atelierの歌声」でそのファイルを取り込み、歌声トラックを選択して音量・位置を調整します。最終ミックスをWAV保存します。</p><p><strong>5.</strong> 「プロジェクトZIP」は編集データと追加した音声も含むバックアップ。通常の曲作りはこの端末・このURLへ自動保存しますが、Safariデータの消去・端末の容量整理などで失われる場合があるため、こまめにZIPも保存してください。</p><p><strong>制限：</strong>オルゴール・ハープ・アコースティックギターを含む標準ブラウザー音源の合成音色であり、録音された実楽器のサンプリング音源ではありません。書き出しは最大6分、音声インポートはファイルあたり80MB／6分まで。Safari実機検証は未実施。Melody連携ZIPとVoice用ZIPは無圧縮形式に対応。音声は外部サービスへ送信しません。</p><div class="dialog-buttons"><button id="closeHelp" class="btn bright">閉じる</button></div></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="app.js?v=015" defer></script>
+<script src="app.js?v=016" defer></script>
 </body></html>
