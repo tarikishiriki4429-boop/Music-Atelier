@@ -4,3 +4,5 @@
 .content{grid-template-columns:minmax(0,1fr)}
 .arrange-container,.arr-scroll,.roll-scroll{max-width:100%;min-width:0}
 .roll-scroll{width:100%}
+
+.roll-navigation{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:6px 0 12px}.roll-navigation label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub)}.roll-scroll{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.roll-scroll canvas{user-select:none;-webkit-user-select:none}
