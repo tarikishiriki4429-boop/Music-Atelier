@@ -230,7 +230,101 @@ function initAutomation(){
  for(const field of ['compression','attack','release']){const id='mix'+field[0].toUpperCase()+field.slice(1);$(id).oninput=()=>{const t=findTrack();if(!t)return;t[field]=Number($(id).value);$(id+'Val').textContent=t[field]+(field==='compression'?'%':'ms');};$(id).onchange=checkpoint;}
 }
 
-function setupEvents(){initAutomation();
+
+// Local, offline audio-to-MIDI-style note conversion. Designed for isolated monophonic sources.
+let transcriptionPending=null;
+function transcribeMono(samples,rate,kind,sensitivity){
+ const hop=256,win=2048,step=rate/11025,signal=new Float32Array(Math.ceil(samples.length/step));
+ for(let i=0;i<signal.length;i++)signal[i]=samples[Math.min(samples.length-1,Math.floor(i*step))];
+ const sr=rate/step,frames=Math.max(0,Math.floor((signal.length-win)/hop));
+ const rms=new Float32Array(frames),pitches=new Int16Array(frames),brightness=new Float32Array(frames);
+ let maxR=0;
+ for(let f=0;f<frames;f++){
+  const pos=f*hop;let power=0,diff=0,high=0,low=0,prev=0;
+  for(let i=0;i<win;i++){const v=signal[pos+i];power+=v*v;if(i){const d=v-prev;diff+=d*d;if(i%2===0)high+=Math.abs(d);else low+=Math.abs(v);}prev=v;}
+  const level=Math.sqrt(power/win);rms[f]=level;maxR=Math.max(maxR,level);brightness[f]=diff/(power+1e-8);
+ }
+ const threshold=Math.max(.002,maxR*(.04+.018*(11-sensitivity)));
+ if(kind==='drums'){
+  const result=[];let last=-100;
+  for(let f=2;f<frames-2;f++){
+   const v=rms[f],prev=Math.max(rms[f-1],rms[f-2]);
+   if(v<threshold||v<prev*(1.16-.008*sensitivity)||f-last<5)continue;
+   const b=brightness[f],pitch=b<.18?36:b<.65?38:b<1.5?42:49;
+   result.push({pitch,start:f*hop/sr,duration:.13,velocity:Math.round(Math.min(127,Math.max(35,95*v/(maxR||1))))});last=f;
+  }
+  return result;
+ }
+ const minHz=kind==='bass'?35:65,maxHz=kind==='bass'?520:1700;
+ const minLag=Math.floor(sr/maxHz),maxLag=Math.min(win/2,Math.ceil(sr/minHz));
+ for(let f=0;f<frames;f++){
+  if(rms[f]<threshold)continue;
+  const off=f*hop,measure=win-maxLag;let bestLag=0,best=Infinity;
+  // normalized difference function, followed by local-minimum preference
+  const values=new Float32Array(maxLag+1);
+  for(let lag=minLag;lag<=maxLag;lag++){
+   let sum=0,energy=0;
+   for(let i=0;i<measure;i+=2){const x=signal[off+i],y=signal[off+i+lag];const d=x-y;sum+=d*d;energy+=x*x+y*y;}
+   values[lag]=sum/(energy+1e-9);
+  }
+  for(let lag=minLag+1;lag<maxLag;lag++){
+   if(values[lag]<best){best=values[lag];bestLag=lag;}
+  }
+  if(best>.33||!bestLag)continue;
+  // Prefer the earliest credible periodicity to reduce octave-down errors.
+  for(let lag=minLag+1;lag<bestLag;lag++)if(values[lag]<Math.min(.19,best*1.6)&&values[lag]<=values[lag-1]&&values[lag]<=values[lag+1]){bestLag=lag;break;}
+  const midi=Math.round(69+12*Math.log2(sr/bestLag/440));
+  if(midi>=24&&midi<=108)pitches[f]=midi;
+ }
+ const result=[];let start=-1,lastPitch=0,miss=0;
+ const flush=(end)=>{if(start<0)return;const duration=(end-start)*hop/sr;if(duration>=.07){let sum=0,count=0;for(let i=start;i<end;i++)if(pitches[i]===lastPitch){sum+=rms[i];count++;}result.push({pitch:lastPitch,start:start*hop/sr,duration,velocity:Math.round(Math.max(30,Math.min(127,85*(sum/Math.max(1,count))/(maxR||1)+30)))});}start=-1;};
+ for(let f=0;f<frames;f++){
+  const p=pitches[f];
+  if(!p){if(start>=0&&++miss>=3){flush(f-2);miss=0;}continue;}
+  if(start<0){start=f;lastPitch=p;miss=0;continue;}
+  if(p!==lastPitch){if(f-start>=3){flush(f);start=f;lastPitch=p;}else{lastPitch=p;} }
+  miss=0;
+ }
+ flush(frames);
+ return result;
+}
+function initTranscriber(){
+ const status=$('transcribeStatus'),commit=$('transcribeCommit');
+ $('transcribeAnalyze').onclick=async()=>{
+  const file=$('transcribeFile').files?.[0];if(!file){status.textContent='音声を選択してください。';return;}
+  transcriptionPending=null;commit.disabled=true;
+  if(file.size>80*1024*1024){status.textContent='80MB以内の音声を選んでください。';return;}
+  status.textContent='音声を解析中…（長い録音では時間がかかります）';
+  await new Promise(r=>setTimeout(r,30));
+  try{
+   const c=ctx||(ctx=new AC()),buffer=await c.decodeAudioData(await file.arrayBuffer());
+   if(buffer.duration>120)throw Error('現在の変換は120秒までです。音声を分割してください。');
+   const mono=new Float32Array(buffer.length);
+   for(let ch=0;ch<buffer.numberOfChannels;ch++){const channel=buffer.getChannelData(ch);for(let i=0;i<mono.length;i++)mono[i]+=channel[i]/buffer.numberOfChannels;}
+   const kind=$('transcribeType').value,notes=transcribeMono(mono,buffer.sampleRate,kind,Number($('transcribeSensitivity').value));
+   if(!notes.length)throw Error('音符を検出できませんでした。感度を上げるか、単音・ドラム単独の録音を試してください。');
+   transcriptionPending={notes,kind,fileName:file.name};
+   status.textContent=`${notes.length}音を検出しました。変換先：${NAMES[kind]}。解析結果は近似です。配置後にピアノロールで確認・修正してください。`;
+   commit.disabled=false;
+  }catch(e){status.textContent='変換失敗：'+e.message;console.warn(e);}
+ };
+ commit.onclick=()=>{
+  if(!transcriptionPending)return;
+  if(st.tracks.length>=18){status.textContent='トラック上限（18本）です。';return;}
+  const {notes,kind,fileName}=transcriptionPending,base=$('transcribeStart').value==='zero'?0:st.playheadBeat;
+  const track=makeTrack(kind,`${NAMES[kind]}（変換）`);
+  track.notes=notes.filter(n=>base+n.start*st.bpm/60<MAX_BEATS).map(n=>({
+   id:uid(),pitch:n.pitch,start:Number((base+n.start*st.bpm/60).toFixed(4)),
+   duration:Number(clamp(n.duration*st.bpm/60,.125,32).toFixed(4)),velocity:n.velocity
+  }));
+  if(!track.notes.length){status.textContent='曲の最大拍数を超えています。';return;}
+  st.tracks.push(track);st.selectedTrackId=track.id;selectedNotes.clear();
+  checkpoint();render();status.textContent=`${track.notes.length}音を新しい${NAMES[kind]}トラックに配置しました。元音声は曲に追加していません。`;
+  transcriptionPending=null;commit.disabled=true;
+ };
+}
+
+function setupEvents(){initAutomation();initTranscriber();
  function noteFxApply(reset=false){const t=findTrack();if(!t||isAudio(t)||isGuide(t)||!selectedNotes.size){toast('先に音符を選択してください');return;}
  const gain=reset?100:clamp($('noteFxGain').value,0,200),pan=reset?0:clamp($('noteFxPan').value,-100,100);
  for(const n of t.notes)if(selectedNotes.has(n.id))n.detail={...(n.detail||{}),gain,pan};
